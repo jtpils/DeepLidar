@@ -91,7 +91,7 @@ def run_HPC(data_paths):
         processes=1,
         queue='hpg2-compute',
         cores=1, 
-        memory='15GB', 
+        memory='30GB', 
         walltime='48:00:00',
         job_extra=extra_args,
         local_directory="/home/b.weinstein/logs/", death_timeout=300)
@@ -107,6 +107,8 @@ def run_HPC(data_paths):
     for site in data_paths:
         futures = dask_client.map(Generate.run, data_paths[site], site=site)
         wait(futures)
+    
+    #TODO print futures in such a way to see result.
 
 if __name__ == "__main__":
     
