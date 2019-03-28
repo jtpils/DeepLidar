@@ -11,7 +11,7 @@ warnings.simplefilter("ignore")
 
 from DeepForest import Generate, config
 
-def find_csvs(overwrite=False):
+def find_csvs(overwrite=True):
     """
     Find training csvs in site path
     """
@@ -91,7 +91,7 @@ def run_HPC(data_paths):
         processes=1,
         queue='hpg2-compute',
         cores=1, 
-        memory='25GB', 
+        memory='19GB', 
         walltime='48:00:00',
         job_extra=extra_args,
         local_directory="/home/b.weinstein/logs/", death_timeout=300)
@@ -115,8 +115,6 @@ if __name__ == "__main__":
     #Local Debugging
     data_paths=find_csvs(overwrite=True)
     
-    #Optionally limit
-    #data_paths = data_paths[:100]
     total_files = [len(data_paths[x]) for x in data_paths]
     print("{s} csv files found for training".format(s=sum(total_files)))
     
