@@ -29,18 +29,18 @@ preprocess:
 
 #Select sites
 hand_annotation_site:
-  - SJER
+  - TEAK
 pretraining_site:
-  - SJER
+  - TEAK
 evaluation_site:
-  - SJER
+  - TEAK
 
 #Training
-training_images: 10000
+training_images: 20000
 weights: None
-imagenet_weights: False
+imagenet_weights: True
 batch_size: 20
-epochs: 5
+epochs: 10
 backbone: resnet50
 shuffle_training: False
 score_threshold: 0.2
